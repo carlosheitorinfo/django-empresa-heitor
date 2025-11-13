@@ -1,11 +1,17 @@
 from django.shortcuts import redirect, render
 from .models import Funcionarios
 from .forms import ContatoModelForm
+from .forms import Produtos
 # Create your views here.
 def home(request):
     return render(request,'home.html')
 def produtos(request):
     return render(request,'produtos.html')
+    produtos = Produtos.objects.filter(status=True)
+    context = {
+        'produtos' : produtos
+    }
+    return render(request, 'produtos.html',context)
 def clientes(request):
     return render(request,'clientes.html')
 def funcionarios(request):

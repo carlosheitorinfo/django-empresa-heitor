@@ -15,7 +15,18 @@ class Funcionarios(models.Model):
         verbose_name_plural = "Funcionários" # Define o nome plural correto
     def __str__(self):
         return self.nome
-    
+
+class Produtos(models.Model):
+    foto = models.ImageField(null=True, blank=True)
+    produto = models.CharField(max_length=100)
+    qauntidade = models.Count()
+    class Meta:
+        verbose_name = "Produto"
+        verbose_name_plural = "Produtos" # Define o nome plural correto
+    def __str__(self):
+        return self.nome
+
+
     # contato/models.py
 from django.db import models
 from django.utils import timezone
