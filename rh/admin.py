@@ -18,3 +18,8 @@ class MensagemContatoAdmin(admin.ModelAdmin):
     list_filter = ('lido', 'data_envio')
     search_fields = ('nome', 'email', 'assunto')
     
+@admin.register(Produtos)
+class ProdutosAdmin(admin.ModelAdmin):
+    list_display = ('produto', 'qauntidade', 'valor')
+    search_fields = ('nome',)
+    list_filter = ()
