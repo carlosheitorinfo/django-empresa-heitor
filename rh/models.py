@@ -19,7 +19,7 @@ class Funcionarios(models.Model):
 class Produtos(models.Model):
     foto = models.ImageField(null=True, blank=True)
     produto = models.CharField(max_length=100)
-    qauntidade = models.Count()
+    qauntidade = models.PositiveIntegerField()
     class Meta:
         verbose_name = "Produto"
         verbose_name_plural = "Produtos" # Define o nome plural correto
