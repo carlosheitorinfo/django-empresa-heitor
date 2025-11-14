@@ -18,14 +18,30 @@ class Funcionarios(models.Model):
 
 class Produtos(models.Model):
     foto = models.ImageField(null=True, blank=True)
-    produto = models.CharField(max_length=100)
-    qauntidade = models.PositiveIntegerField()
+    nome = models.CharField(max_length=100)
+    quantidade = models.PositiveIntegerField()
+    valor = models.DecimalField(max_digits=10, decimal_places=2)
+    em_estoque = models.BooleanField(default=True)
+    
     class Meta:
         verbose_name = "Produto"
         verbose_name_plural = "Produtos" # Define o nome plural correto
     def __str__(self):
         return self.nome
 
+class Clientes(models.Model):
+    foto = models.ImageField(null=True, blank=True)
+    nome = models.CharField(max_length=100)
+    idade = models.PositiveIntegerField(max_length=10)
+    email = models.EmailField(max_length=100)
+    contato = models.CharField(max_length=100)
+    ativo = models.BooleanField(default=True)
+    
+    class Meta:
+        verbose_name = "Cliente"
+        verbose_name_plural = "Clientes" # Define o nome plural correto
+    def __str__(self):
+        return self.nome
 
     # contato/models.py
 from django.db import models

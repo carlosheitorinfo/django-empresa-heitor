@@ -4,18 +4,24 @@
 {% block content %}
     <h3>Página de Produtos</h3>
 
-    <table>
-        <tr>
-            <th></th>
-            <th>Produto</th>
-            <th>Preço</th>
-        </tr>
         {% for produto in produtos %}
-            <tr>
-                <td><img src="{{ produto.imagem.url }}" width="250" height="300"></td>
-                <td>{{ produto.nome }}</td>
-                <td>{{ produto.preco }}</td>
-            </tr>
+            
+            <section class="card-produto">
+                {% if produto.foto.url != null %}
+                <img src="{{ produto.foto.url }}" alt="Foto de {{produto.nome}}">
+                {% else %}
+                <img src="/static/images/semFoto.png" alt="Foto padrão de usuário">
+                {% endif %}
+                <div class="info-produto">
+                    <h4>{{produto.nome}}</h4>
+                    <p>nome: {{produto.nome}} </p>
+                    <p>valor: {{produto.valor}} </p>
+                    <p>quantidade: {{produto.quantidade}}</p>
+                    {% if produto.status == True %}
+                        <p>Situação: Ativo</p>
+                    {% endif %}
+                </div>
+            </section>
         {% endfor %}
-    </table>
+   
 {% endblock %}

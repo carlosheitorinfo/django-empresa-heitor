@@ -4,4 +4,24 @@
 {% block content %}
     <h3>Página de Clientes</h3>
 
+    {% for cliente in clientes %}
+            
+            <section class="card-cliente">
+                {% if cliente.foto.url != null %}
+                <img src="{{ cliente.foto.url }}" alt="Foto de {{cliente.nome}}">
+                {% else %}
+                <img src="/static/images/semFoto.png" alt="Foto padrão de cliente">
+                {% endif %}
+                <div class="info-cliente">
+                    <h4>{{cliente.nome}}</h4>
+                    <p>nome: {{cliente.nome}} </p>
+                    <p>idade: {{cliente.idade}} </p>
+                    <p>email: {{cliente.email}}</p>
+                    <p>contato: {{cliente.contato}}</p>
+                    {% if cleinte.ativo == True %}
+                        <p>Situação: Ativo</p>
+                    {% endif %}
+                </div>
+            </section>
+        {% endfor %}
 {% endblock %}
