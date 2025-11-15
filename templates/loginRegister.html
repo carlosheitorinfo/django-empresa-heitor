@@ -1,0 +1,15 @@
+<header>
+    <a href="{% url 'home' %}" class="logo">
+        <h1>Escola</h1>
+    </a>
+    <nav class="menu">
+        {% if request.user.is_authenticated %}
+            Olá, {{ request.user.username }}
+            <a href="{% url 'perfil' %}">Perfil</a>
+            <a href="{% url 'logout' %}">Sair</a>
+        {% else %}
+            <a href="{% url 'login' %}">Entrar</a>
+            <a href="{% url 'registrar' %}">Registrar</a>
+        {% endif %}
+    </nav>
+</header>
