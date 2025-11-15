@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Funcionarios(models.Model):
     foto = models.ImageField(null=True, blank=True)
     nome = models.CharField(max_length=100)
@@ -9,10 +8,9 @@ class Funcionarios(models.Model):
     data_contratacao = models.DateField()
     status = models.BooleanField(default=True)
     
-    #corrige o problema de duplo 's' no nome do modelo no admin
     class Meta:
         verbose_name = "Funcionário"
-        verbose_name_plural = "Funcionários" # Define o nome plural correto
+        verbose_name_plural = "Funcionários" 
     def __str__(self):
         return self.nome
 
@@ -25,7 +23,7 @@ class Produtos(models.Model):
     
     class Meta:
         verbose_name = "Produto"
-        verbose_name_plural = "Produtos" # Define o nome plural correto
+        verbose_name_plural = "Produtos" 
     def __str__(self):
         return self.nome
 
@@ -39,11 +37,11 @@ class Clientes(models.Model):
     
     class Meta:
         verbose_name = "Cliente"
-        verbose_name_plural = "Clientes" # Define o nome plural correto
+        verbose_name_plural = "Clientes" 
     def __str__(self):
         return self.nome
 
-    # contato/models.py
+    
 from django.db import models
 from django.utils import timezone
 
